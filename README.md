@@ -5,6 +5,10 @@ By WitchDoctoR. The main menu music of ten Guitar Hero games in **one** menu mus
 Encore: Rocks the 80s, Aerosmith, Metallica, Smash Hits, Van Halen, Guitar Hero 5, Band Hero and Warriors of Rock
 (99 tracks).
 
+**Download:** `GHWTDE-All-Main-Menu-Music_1.0.zip` (302 MB) from the
+[Releases page](https://github.com/jgoa156/ghwtde-all-main-menu-music/releases/latest). Copy its
+`Main Menu Music Collection` folder into `DATA\MODS` and disable any other menu music mod (the game loads only one).
+
 The DE loads only one menu music mod, so every game lives in this one. **To leave a game out**, open
 `DATA\MODS\Main Menu Music Collection\menumusic.ini` and put a `;` in front of that game's `Track=` lines (each game is
 a commented block); remove the `;` to bring it back.
