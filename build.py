@@ -3,7 +3,7 @@
   python build.py [--sources DIR] [--measure] [--install GAME] [--package]
 
   --sources DIR   the source menu music mods, one folder per game (default: MMC_SOURCES or
-                  E:/Dev/ghwt/menu-music-all/sources); World Tour's comes from make_wt_source.py
+                  E:/Dev/ghwt/menu-music-all/sources)
   --measure       measure every track's loudness again with ffmpeg and rewrite <sources>/mmc_levels.json
   --install GAME  copy the mod into GAME/DATA/MODS; Track lines switched off (;Track=) in the installed
                   menumusic.ini stay switched off
@@ -95,7 +95,7 @@ def readme(sources, info):
         'SWITCHING GAMES OFF',
         '  Open DATA\\MODS\\Main Menu Music Collection\\menumusic.ini. Each game is a block of Track lines under its',
         '  name. Put a ; at the start of each Track line of a game to leave it out of the shuffle; remove the ; to',
-        '  bring it back. Leave the QBName line as it is (it stops World Tour\'s songs playing twice).',
+        '  bring it back. World Tour\'s own six menu songs always play as well: they are the game\'s.',
         '',
         'LOUDNESS',
         '  The games mix their menu songs up to 8 dB apart. Every track is levelled to about '

@@ -30,18 +30,12 @@ VERSION = '1.0'
 # the DE fonts lack " ( ) _ - ; ! & and more: ModInfo Name/Description may only use these
 SAFE_CHARS = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ,.:/')
 CHUNK = 1 << 20
-# The DE adds a menu music mod's tracks to its own six World Tour songs (global_sound_logic's menu_music_songs, with
-# AddArrayElement after the mod's QB loads). The collection carries World Tour's songs as one more game block instead
-# (make_wt_source.py), so its QB empties that list: 'SectionArray menu_music_songs { }'. The empty array must have
-# element type 0 (00 01 00 00, count 0) like the game's own 120 empty arrays: written as an empty STRUCT array
-# (00 01 0a 00) the game corrupted its heap when it added the tracks and crashed at boot.
-NO_WT_QB = 'NoWorldTour'
-NO_WT_QB_BYTES = bytes.fromhex('00000000000000381c0802041004080c0c0802041402040c10100c0000200c004a662be040ca2103'
-                               '00000030000000000001000000000000')
+# The DE always plays World Tour's own six menu songs (global_sound_logic's menu_music_songs) and adds the mod's tracks
+# to them, so World Tour is not a game block here. (Replacing that list from the mod's QBName QB crashed the game at
+# boot: the QB is only meant to hold the tracks' fretbar arrays.)
 
 # (code, aliases, friendly name, short name for the mod description); order = list order = track order in the mod
 GAMES = [
-    ('GHWT', ('GHWT', 'WT', 'WORLDTOUR'), 'Guitar Hero World Tour', 'World Tour'),   # make_wt_source.py
     ('GH1', ('GH1', 'GHI', 'GH'), 'Guitar Hero', 'Guitar Hero'),
     ('GH2', ('GH2', 'GHII'), 'Guitar Hero II', 'Guitar Hero II'),
     ('GH80s', ('GH80S', '80S', 'ENCORE', 'GHE'), 'Guitar Hero Encore: Rocks the 80s', 'Encore Rocks the 80s'),
@@ -375,14 +369,10 @@ def build_mod(parent, sources, progress=None):
             struct.pack('>II', qbkey(c.name), i) + bytes(12) for i, c in enumerate(clips))
         with open(os.path.join(tmp, 'Content', FSB_NAME + '.dat.xen'), 'wb') as f:
             f.write(dat)
-        with open(os.path.join(tmp, 'Content', NO_WT_QB + '.qb.xen'), 'wb') as f:
-            f.write(NO_WT_QB_BYTES)
         ini = ['[ModInfo]', f'Name={title}', f'Description={desc}', f'Author={AUTHOR}', f'Version={VERSION}', '',
                '[MenuMusicInfo]', f'FSBName={FSB_NAME}',
-               '; World Tour\'s own menu songs are in the list below like any other game: this line keeps the game',
-               '; from adding them a second time. Leave it as it is.',
-               f'QBName={NO_WT_QB}',
                '',
+               "; World Tour's own six menu songs always play too: they are the game's, not part of this list.",
                '; Each game is a block of Track lines under its name. To leave a game out of the shuffle, put a ; at the',
                '; start of each Track line in its block (or delete those lines). Remove the ; again to bring it back.']
         for s in sources:
