@@ -1,0 +1,79 @@
+NEXUS MODS PAGE - GHWT:DE All Main Menu Music 1.0
+==================================================
+
+MOD NAME
+GHWT:DE All Main Menu Music
+
+VERSION
+1.0
+
+CATEGORY (suggested)
+Audio / Music
+
+AUTHOR
+WitchDoctoR (collection); the per-game menu music mods by Raccoon_333 (nine games) and WitchDoctoR (Warriors of Rock)
+
+BRIEF OVERVIEW (summary field, under 350 characters)
+The main menu music of ten Guitar Hero games in one menu music mod for GHWT: Definitive Edition, shuffled together with World Tour's own songs. 99 tracks, levelled to the same loudness. Every game is on; switch any of them off in menumusic.ini.
+
+FILE (main file)
+  File name:    All Main Menu Music 1.0
+  Upload:       GHWTDE-All-Main-Menu-Music_1.0.zip (302 MB)
+  Description:  The "Main Menu Music Collection" mod folder for DATA\MODS, every game switched on.
+
+DETAILED DESCRIPTION (BBCode)
+---8<---
+[size=5][b]GHWT:DE All Main Menu Music[/b][/size]
+The main menu music of [b]ten Guitar Hero games[/b] in one menu music mod for [b]Guitar Hero World Tour: Definitive Edition[/b], shuffled together with World Tour's own six menu songs.
+
+The Definitive Edition loads only [b]one[/b] menu music mod, so you can't simply install several. This mod carries all of them in one, and you leave out the games you don't want.
+
+[size=4][b]Games (99 tracks)[/b][/size]
+[list]
+[*]Guitar Hero (10)
+[*]Guitar Hero II (10)
+[*]Guitar Hero Encore: Rocks the 80s (7)
+[*]Guitar Hero: Aerosmith (6)
+[*]Guitar Hero: Metallica (9)
+[*]Guitar Hero: Smash Hits (8)
+[*]Guitar Hero: Van Halen (9)
+[*]Guitar Hero 5 (8)
+[*]Band Hero (18)
+[*]Guitar Hero: Warriors of Rock (14)
+[/list]
+World Tour's own six menu songs always play as well: they are the game's.
+
+[size=4][b]Same loudness[/b][/size]
+The games mix their menu songs up to 8 dB apart. Every track is levelled to about -13 LUFS without re-encoding (mp3gain's method: only each MP3 frame's gain field changes, the audio data is untouched), so no song jumps out louder than the others.
+
+[size=4][b]Install[/b][/size]
+[list=1]
+[*]Copy the [b]Main Menu Music Collection[/b] folder into [b]DATA\MODS[/b] in your game folder (the one with GHWT_Definitive.exe).
+[*]Disable any other menu music mod: the game loads only one.
+[/list]
+
+[size=4][b]Leaving games out[/b][/size]
+Every game is on. Open [b]DATA\MODS\Main Menu Music Collection\menumusic.ini[/b]: each game is a block of [b]Track=[/b] lines under its name. Put a [b];[/b] at the start of each Track line of a game to leave it out of the shuffle; remove the [b];[/b] to bring it back.
+
+[size=4][b]Uninstall[/b][/size]
+Delete the Main Menu Music Collection folder from DATA\MODS.
+
+Source and build script: [url=https://github.com/jgoa156/ghwtde-all-main-menu-music]github.com/jgoa156/ghwtde-all-main-menu-music[/url]
+
+[size=4][b]Credits[/b][/size]
+[list]
+[*]Menu music mods by [b]Raccoon_333[/b]: Guitar Hero, Guitar Hero II, Encore: Rocks the 80s, Aerosmith, Metallica, Smash Hits, Van Halen, Guitar Hero 5, Band Hero.
+[*]Warriors of Rock menu music and the collection: [b]WitchDoctoR[/b].
+[*]The songs belong to their owners; this is a fan mod.
+[/list]
+---8<---
+
+CHANGELOG
+1.0
+- First release: ten games' main menu music in one mod, levelled, every game switchable in menumusic.ini.
+
+REQUIREMENTS (Nexus "requirements" section)
+- None. Recommended: credit / link Raccoon_333's menu music mods if they are on Nexus.
+
+PERMISSIONS (suggested, your call)
+- The tracks come from Raccoon_333's mods: ask before allowing re-uploads; keep the credits.
