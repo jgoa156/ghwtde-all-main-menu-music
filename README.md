@@ -29,3 +29,15 @@ python verify_mod.py "dist\Main Menu Music Collection" --sources DIR
 `--install` keeps the games already switched off in the installed `menumusic.ini`. The mod (about 312 MB) is too
 large for the repo; release zips go to GitHub Releases. Sources: one DE menu music mod folder per game plus
 `mmc_levels.json` (loudness steps, `--measure` with ffmpeg).
+
+## Planned: "now playing" toast
+
+Like the EA Trax games: when a menu song starts, a small toast slides in at the **bottom-left corner** with the
+**song**, **artist** and **game**, holds a few seconds and slides out. Notes for when it is built:
+
+- **Data:** each track's section in `menumusic.ini` gets `Title=`, `Artist=` and `Game=` (the game name is already
+  known per block). Text must stay within the DE fonts' characters (letters, digits, spaces and `, . : /`).
+- **Trigger:** the DE picks menu songs in the `Menu_Music_SE` script ("Picked menu song!" in debug.txt). The DE
+  ignores a mod's script redefinitions, so the toast needs a native hook (the HUD mod's plugin swaps script symbols
+  the same way, or a small ASI of this mod) that calls a script creating the toast screen element.
+- **Look:** to be mocked and approved before it is applied.
